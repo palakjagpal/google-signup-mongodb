@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center; margin-top: 100px">
+    <h2 id="msg">Processing...</h2>
+
+    <script>
+      // Extract JWT token from URL
+      //This script extracts the token parameter from the URL's query string using the URLSearchParams API
+      //URLSearchParams helps you create, read, update, and manipulate query strings without manually parsing them.
+      //This works by creating a new URLSearchParams object with the current window's location search string (the part of the URL after the ?)
+      const urlParams = new URLSearchParams(window.location.search);
+      console.log(urlParams);
+
+      //The get method of URLSearchParams is then used to retrieve the value of the token parameter from the query string
+      //This works by calling urlParams.get("token"), which returns the value associated with the token key in the query string
+      const token = urlParams.get("token");
+      console.log(token);
+
+      // Store token in localStorage
+      //This code checks if the token exists (i.e., it is not null or undefined)
+      if (token) {
+        // localStorage.setItem is used to store data permanently (until cleared) in the browser
+        //this line stores the extracted token in localStorage with the key "palak"
+        localStorage.setItem("palak", token);
+        // Update message to indicate successful login
+        document.getElementById("msg").innerText = "Logged in successfully!";
+      } else {
+        // Update message to indicate login failure
+        document.getElementById("msg").innerText = "Login failed!";
+      }
+    </script>
+</body>
+</html>
