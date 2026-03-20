@@ -27,7 +27,8 @@ passport.use(
         {
             clientID : process.env.GOOGLE_CLIENT_ID,
             clientSecret : process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL : "http://localhost:3000/auth/google/callback",
+            /*callbackURL : "http://localhost:3000/auth/google/callback",*/
+            callbackURL : `${process.env.BASE_URL}/auth/google/callback`,
         },
          
         //This is a callback function that is called after Google has authenticated the user. It receives the access token, refresh token, and the user's profile information from Google

@@ -50,7 +50,7 @@ router.get("/google/callback", passport.authenticate("google", {session : false}
     //This is useful for passing the token to the frontend application after successful authentication.
     //The frontend can then use this token for subsequent authenticated requests.
     /*res.redirect(`${process.env.FRONTEND_URL}/success.html?token=${token}`);*/
-    res.redirect(`${process.env.FRONTEND_URL}/success?token={token}`);
+    res.redirect(`${process.env.FRONTEND_URL}/success?token=${token}`);
 });
 
 
