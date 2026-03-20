@@ -49,7 +49,8 @@ router.get("/google/callback", passport.authenticate("google", {session : false}
     //It uses res.redirect to send the user to the specified URL with the token included as a query parameter.
     //This is useful for passing the token to the frontend application after successful authentication.
     //The frontend can then use this token for subsequent authenticated requests.
-    res.redirect(`${process.env.FRONTEND_URL}/success.html?token=${token}`);
+    /*res.redirect(`${process.env.FRONTEND_URL}/success.html?token=${token}`);*/
+    res.redirect(`${process.env.FRONTEND_URL}/success?token={token}`);
 });
 
 
