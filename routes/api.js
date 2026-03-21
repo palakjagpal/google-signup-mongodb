@@ -33,6 +33,7 @@ const verifyToken = async (req, res, next) => {
         // This is important because database operations are asynchronous, and using await allows the code to pause execution until the data is available.
         // This way, when the next middleware or route handler accesses req.user, it has the correct user information.
         req.user = await myModel.findById(decoded.id);
+        next();
     } catch(err){
         // If token is invalid, respond with 403
         res.status(403).json({
